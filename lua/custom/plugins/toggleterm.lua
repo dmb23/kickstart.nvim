@@ -4,10 +4,19 @@ return {
     version = '*',
     opts = {
       -- open_mapping = [[<leader>tt]],
-      open_mapping = nil,
     },
     config = function()
-      require('toggleterm').setup()
+      require('toggleterm').setup {
+        open_mapping = nil,
+        direction = 'vertical',
+        size = function(term)
+          if term.direction == 'horizontal' then
+            return 15
+          elseif term.direction == 'vertical' then
+            return vim.o.columns * 0.4
+          end
+        end,
+      }
 
       -- Add a `lazygit` terminal
       local Terminal = require('toggleterm.terminal').Terminal
