@@ -33,14 +33,14 @@ return {
       end
 
       -- Setup the keybindings
-      vim.keymap.set({ 'n', 'i', 't' }, '<C-t>l', lazygit_toggle, { noremap = true, silent = true, desc = '[T]oggleterm: [L]azygit' })
+      vim.keymap.set({ 'n', 'i', 't' }, '<C-q>l', lazygit_toggle, { noremap = true, silent = true, desc = '[T]oggleterm: [L]azygit' })
       -- v:count defaults the count to 0 but if a count is passed in uses that instead
-      vim.keymap.set({ 'n', 'i', 't' }, '<C-t>t', '<Cmd>execute v:count . "ToggleTerm"<CR>', {
+      vim.keymap.set({ 'n', 'i', 't' }, '<C-q>t', '<Cmd>execute v:count . "ToggleTerm"<CR>', {
         desc = '[T]oggleterm: Terminal',
         silent = true,
       })
       -- exit terminal mode along the lines of <C-t>
-      vim.keymap.set('t', '<C-t>x', '<C-\\><C-n>', { desc = '[T]oggleterm: get finally out of terminal mode' })
+      vim.keymap.set('t', '<C-q>q', '<C-\\><C-n>', { desc = '[T]oggleterm: get finally out of terminal mode' })
     end,
   },
 }

@@ -42,7 +42,7 @@ return {
       vim.keymap.set('n', '<leader>dc', dpy.test_class, { desc = '[D]ap: Python Test Class' })
       -- vim.keymap.set('n', '<leader>ds', dpy.debug_selection, { desc = '[D]ap: Python Debug Selection' })
 
-      vim.keymap.set('n', '<leader>dx', ui.close, { desc = '[D]ap: UI close UI' })
+      vim.keymap.set('n', '<leader>dq', ui.close, { desc = '[D]ap: UI close UI' })
 
       dap.listeners.before.attach.dapui_config = function()
         ui.open()
