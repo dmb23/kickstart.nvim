@@ -325,7 +325,7 @@ require('lazy').setup({
     },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
-  'eddiebergman/nvim-treesitter-pyfold',
+  -- 'eddiebergman/nvim-treesitter-pyfold',
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
@@ -480,7 +480,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
+        gopls = {},
         pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -506,6 +506,8 @@ require('lazy').setup({
             },
           },
         },
+        marksman = {},
+        ruff = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -521,6 +523,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'go-debug-adapter',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -766,10 +769,10 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
-      pyfold = {
-        enable = true,
-        custom_foldtext = true,
-      },
+      -- pyfold = {
+      --   enable = true,
+      --   custom_foldtext = true,
+      -- },
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
